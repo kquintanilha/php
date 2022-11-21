@@ -1,0 +1,42 @@
+*{
+    text-align: center;
+
+  }
+
+.user{
+    font-size: 50px;
+    width: 25px;
+    
+}  
+
+  img{
+    width: 300px;
+  }
+ 
+.topo{
+    background-image: linear-gradient(45deg,blue, orange);
+    height: 100px;
+    font-size: 50px;
+    color: rgb(243, 240, 255);
+    padding-top: 30px;
+    }
+
+.topoEdicao{
+    background-image: linear-gradient(45deg,grey, orange);
+    height: 100px;
+    font-size: 50px;
+    color: rgb(243, 240, 255);
+    padding-top: 30px;
+    }
+    
+
+.texto{
+    font-size: 100px;
+
+}
+
+.login{
+    font-size: 30px;
+}
+
+
