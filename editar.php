@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('verificacao.php');
+//include('verificacao.php');
 include('conexao.php');
 //verifico se o ID foi informado
 if(isset($_GET['id'])){
@@ -12,6 +12,7 @@ if(isset($_GET['id'])){
     $nome = $dadosUsuario['nome'];
     $email = $dadosUsuario['email'];
     $senha = $dadosUsuario['senha'];
+    $permissao = $dadosUsuario['adm'];
 }
 //Verifica se o botão salvar foi pressionado
 if(isset($_POST['salvar'])){
@@ -21,9 +22,10 @@ if(isset($_POST['salvar'])){
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $id = $_POST['id'];
-    
+    $permissao = $_POST['adm'];
+
     //Realizar o Update no banco de dados
-    $query = "UPDATE usuario SET nome = '{$nome}', email = '{$email}', senha = '{$senha}' WHERE id = {$id}";
+    $query = "UPDATE usuario SET nome = '{$nome}', email = '{$email}', senha = '{$senha}', adm = '{$permissao}' WHERE id = {$id}";
     $result = mysqli_query($conexao, $query);
     header('location: painel.php');
 
@@ -66,6 +68,12 @@ if(isset($_POST['salvar'])){
         <input value="<?php echo $email?>"name="email" type="email" placeholder="Informe seu email.">
         <p>Senha:</p>
         <input value="<?php echo $senha?>"name="senha" type="text" placeholder="Informe sua Senha.">
+        <br>
+        <p>Permissão:</p>
+        <select name="adm" id="adm">
+            <option value="1">administrador</option>
+            <option value="0">usuario</option>
+        </select>
         <br><br>
         <button type="submit" name="salvar">Salvar</button>
     </form> 

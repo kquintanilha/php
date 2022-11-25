@@ -1,7 +1,7 @@
 <?php
 session_start();
 $usuario = $_SESSION['usuario'];
-include('verificacao.php');
+//include('verificacao.php');
 include('conexao.php');
 ?>
 

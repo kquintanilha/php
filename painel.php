@@ -1,7 +1,7 @@
 <?php
 session_start();
 $usuario = $_SESSION['usuario'];
-include('verificacao.php');
+//include('verificacao.php');
 include('conexao.php');
 ?>
 
@@ -47,6 +47,7 @@ include('conexao.php');
             <th>Senha</th>
             <th>Editar</th>
             <th>Excluir</th>
+            <th>Permissão</th>
         </tr>
         <?php
         //enquanto existir dados na minha variavel $result
@@ -56,6 +57,13 @@ include('conexao.php');
             $nome = $linha['nome'];
             $email = $linha['email'];
             $senha = $linha['senha'];
+            $permissao = $linha['adm'];
+            if($permissao == 1){
+                $permissao_adm = substr_replace($permissao, "administrador", 0);
+            }else{
+                $permissao_adm = substr_replace($permissao, "usuario", 0);
+            }
+            
         ?>
         <!--Codigo HTML / Denhar as linhas da tabela  -->
         <tr>
@@ -65,6 +73,7 @@ include('conexao.php');
             <td><?php echo $senha ?></td>
             <td><a href="editar.php?id=<?php echo $id ?>"><button class="btn btn-outline-primary">Editar</button></a>
             <td><a href="excluir.php?id=<?php echo $id ?>"><button class="btn btn-danger">Excluir</button></a></td>
+            <td><?php echo $permissao_adm ?></td>
         </tr>
         <?php
         }
