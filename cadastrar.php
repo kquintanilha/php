@@ -21,12 +21,12 @@ if($numerolinhas == 1){
 }else{
     //Se o usuario não existe, então realizamos 
     // a inserção dos dados no banco
-    $query = "INSERT INTO `usuario` (`id`, `nome`, `email`, `senha`) VALUES (NULL, '{$nome}', '{$email}', '{$senha}')";    
+    $query = "INSERT INTO `usuario` (`id`, `nome`, `email`, `senha`, adm) VALUES (NULL, '{$nome}', '{$email}', '{$senha}', '0')";    
     if($conexao -> query($query) == true ){
         // Insere no banco e se inseriu corretamente, 
         //então retorno a mensagem para o painel de usuario
         $_SESSION['usuario'] = $nome;
-        header('location: painel.php');
+        header('location: index.php');
         exit;
     }
 }

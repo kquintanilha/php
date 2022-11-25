@@ -21,7 +21,6 @@ include('conexao.php');
     <h2>Seja bem vindo(a) <?php echo $usuario ?></h2>
     <a href="cadastro.php"><button class="btn btn-outline-primary">Cadastrar Usuário</button></a>
     <a href="logout.php"><button class="btn btn-danger">Sair</button></a>
-
     <br><br>
     <?php
     if(isset($_SESSION['usuario_excluido'])){

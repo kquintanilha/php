@@ -35,8 +35,7 @@ if(isset($id)){
     header('location: painel.php');
     exit;
     }
-    }
+   }
 }else{
     header('location: painel.php');
 }
-

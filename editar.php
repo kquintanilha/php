@@ -2,11 +2,10 @@
 session_start();
 include('verificacao.php');
 include('conexao.php');
-
+//verifico se o ID foi informado
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    //verificar se o ID foi informado
-    //Pesquisar no banco de dados todos se os usuarios existentes
+
     $query = "SELECT * FROM usuario WHERE id = {$id}";
     $result = mysqli_query($conexao, $query);
     $dadosUsuario = mysqli_fetch_assoc($result);
@@ -17,6 +16,7 @@ if(isset($_GET['id'])){
 //Verifica se o botão salvar foi pressionado
 if(isset($_POST['salvar'])){
     //Pegar os valores alterados
+   //Pega informações do usuário - Email e senha
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
